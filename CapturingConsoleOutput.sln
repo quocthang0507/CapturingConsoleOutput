@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asynchronous_ConsoleApp", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputFromProcess", "OutputFromProcess\OutputFromProcess.csproj", "{5D0C446D-E0E1-4946-96EF-E65348E6F7AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapturingConsoleOutput.Shared", "CapturingConsoleOutput.Shared\CapturingConsoleOutput.Shared.csproj", "{C80E7D81-41C0-4DC2-AB54-EEA3A87F6D80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5D0C446D-E0E1-4946-96EF-E65348E6F7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D0C446D-E0E1-4946-96EF-E65348E6F7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D0C446D-E0E1-4946-96EF-E65348E6F7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80E7D81-41C0-4DC2-AB54-EEA3A87F6D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80E7D81-41C0-4DC2-AB54-EEA3A87F6D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80E7D81-41C0-4DC2-AB54-EEA3A87F6D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80E7D81-41C0-4DC2-AB54-EEA3A87F6D80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
