@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapturingConsoleOutput.Shared;
+using System;
 using System.Diagnostics;
 
 namespace OutputFromProcess
@@ -7,20 +8,12 @@ namespace OutputFromProcess
 	{
 		static void Main(string[] args)
 		{
-			ListProcesses();
+			CapturingProcess capturing = new CapturingProcess();
+			capturing.ShowRunningProcesses();
 			Console.WriteLine("Press any key to exit...");
 			Console.ReadKey();
 		}
 
-		private static void ListProcesses()
-		{
-			Process[] processCollection = Process.GetProcesses();
-			int i = 0;
-			foreach (Process p in processCollection)
-			{
-				i++;
-				Console.WriteLine($"{i}\t{p.ProcessName}\t{p.MainWindowTitle}");
-			}
-		}
+
 	}
 }
