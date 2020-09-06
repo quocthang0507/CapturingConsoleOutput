@@ -1,28 +1,42 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace CapturingConsoleOutput.Shared
 {
 	public class CapturingProcess
 	{
-		public Process process { get; }
+		public Process Process { get { return _process; } }
+		public string Path { get; }
 
-		public CapturingProcess()
+		private StreamWriter writer;
+		private Process _process;
+
+		public CapturingProcess(int pid, string path_to_text)
 		{
-
-		}
-
-		public CapturingProcess(int pid)
-		{
-			Process.GetProcessById(pid);
+			SetProcessID(pid);
+			Path = path_to_text;
 		}
 
 		public void SetProcessID(int pid)
 		{
-			Process.GetProcessById(pid);
+			try
+			{
+				_process = Process.GetProcessById(pid);
+			}
+			catch (ArgumentException e)
+			{
+				Console.WriteLine(e.Message);
+				return;
+			}
+			_process.WaitForExit();
+			if (File.Exists(Path))
+				File.Delete(Path);
+			writer = File.AppendText(Path);
 		}
-
+		 
 		public void ShowRunningProcesses()
 		{
 			Process[] processCollection = Process.GetProcesses();
@@ -40,6 +54,15 @@ namespace CapturingConsoleOutput.Shared
 			}
 		}
 
+		public void CaptureAfterWaiting()
+		{
+			SetForegroundWindow(_process.MainWindowHandle);
+			SendKeys.Send("^A");
+		}
+
+		[DllImport("user32.dll")]
+		private static extern int SetForegroundWindow(IntPtr hWnd);
+
 		private void ShowFixedColumn(ConsoleColumn[] columns)
 		{
 			foreach (var col in columns)
@@ -53,5 +76,6 @@ namespace CapturingConsoleOutput.Shared
 		{
 			Console.WriteLine(new string('=', columns.Sum(c => c.Width) + 1));
 		}
+
 	}
 }

@@ -5,8 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CapturingConsoleOutput.Shared\CapturingConsoleOutput.Shared.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -8,8 +8,11 @@ namespace OutputFromProcess
 	{
 		static void Main(string[] args)
 		{
-			CapturingProcess capturing = new CapturingProcess();
-			capturing.ShowRunningProcesses();
+			Console.Write("Enter PID number: ");
+			int pid = Convert.ToInt32(Console.ReadLine());
+			CapturingProcess capturing = new CapturingProcess(pid, "output.txt");
+			//capturing.ShowRunningProcesses();
+			capturing.CaptureAfterWaiting();
 			Console.WriteLine("Press any key to exit...");
 			Console.ReadKey();
 		}
