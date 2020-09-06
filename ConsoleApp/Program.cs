@@ -24,7 +24,7 @@ namespace ConsoleApp
 			};
 			proc.Start();
 			if (File.Exists(Path))
-				File.Create(Path);
+				File.Delete(Path);
 			using (StreamWriter writer = File.AppendText(Path))
 			{
 				while (!proc.StandardOutput.EndOfStream)
