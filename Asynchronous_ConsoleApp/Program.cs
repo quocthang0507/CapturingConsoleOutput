@@ -33,8 +33,7 @@ namespace Asynchronous_ConsoleApp
 					Arguments = "/c DIR",
 					UseShellExecute = false,
 					RedirectStandardOutput = true,
-					RedirectStandardError = true,
-					CreateNoWindow = false
+					RedirectStandardError = true
 				}
 			};
 			//* Set your output and error (asynchronous) handlers
